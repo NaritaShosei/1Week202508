@@ -1,13 +1,18 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 
-[System.Serializable]
-public class SlideDoor
+public class SlideDoor : MonoBehaviour
 {
     [SerializeField] private SlideType _slideType;
 
     public bool CanSlide(SlideType type)
     {
-        return _slideType == type;
+        if (type == _slideType)
+        {
+            // ドアをスライドするアニメーション
+            return true;
+        }
+        return false;
     }
 }
 public enum SlideType
