@@ -1,16 +1,24 @@
+﻿using Cysharp.Threading.Tasks;
 using UnityEngine;
 
 public class TimeManager : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    [SerializeField] private float _maxTime;
+    private float _timer;
+
+    private async void Start()
     {
-        
+        await Timer();
     }
 
-    // Update is called once per frame
-    void Update()
+    private async UniTask Timer()
     {
-        
+        _timer = _maxTime;
+        while (_timer > 0)
+        {
+            _timer -= Time.deltaTime;
+            await UniTask.Yield(cancellationToken: destroyCancellationToken);
+        }
+        Debug.Log("Time Out");
     }
 }
