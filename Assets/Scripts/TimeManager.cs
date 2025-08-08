@@ -13,12 +13,16 @@ public class TimeManager : MonoBehaviour
 
     private async UniTask Timer()
     {
-        _timer = _maxTime;
-        while (_timer > 0)
+        try
         {
-            _timer -= Time.deltaTime;
-            await UniTask.Yield(cancellationToken: destroyCancellationToken);
+            _timer = _maxTime;
+            while (_timer > 0)
+            {
+                _timer -= Time.deltaTime;
+                await UniTask.Yield(cancellationToken: destroyCancellationToken);
+            }
+            Debug.Log("Time Out");
         }
-        Debug.Log("Time Out");
+        catch { }
     }
 }
