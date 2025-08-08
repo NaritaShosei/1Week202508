@@ -1,14 +1,17 @@
 ﻿using Cysharp.Threading.Tasks;
+using System;
 using UnityEngine;
 
 public class TimeManager : MonoBehaviour
 {
     [SerializeField] private float _maxTime;
     private float _timer;
+    public event Action OnTimeOverEvent;
 
     private async void Start()
     {
         await Timer();
+        OnTimeOverEvent?.Invoke();
     }
 
     private async UniTask Timer()
