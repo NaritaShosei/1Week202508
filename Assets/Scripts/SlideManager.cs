@@ -8,10 +8,11 @@ public class SlideManager : MonoBehaviour
     [SerializeField] private GameManager _gameManager;
     private int _slideCount;
 
-    private void Start()
+    private async void Start()
     {
         _currentDoor = Instantiate(_doors[Random.Range(0, _doors.Length)]);
         _timeManager.OnTimeOverEvent += AddScore;
+        await _timeManager.Timer();
     }
 
     private void OnDisable()
@@ -29,7 +30,6 @@ public class SlideManager : MonoBehaviour
         Debug.Log(type.ToString());
         if (_currentDoor.CanSlide(type))
         {
-            Destroy(_currentDoor.gameObject);
             _currentDoor = Instantiate(_doors[Random.Range(0, _doors.Length)]);
             _slideCount++;
         }

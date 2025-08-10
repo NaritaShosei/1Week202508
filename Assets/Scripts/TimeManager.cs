@@ -8,13 +8,7 @@ public class TimeManager : MonoBehaviour
     private float _timer;
     public event Action OnTimeOverEvent;
 
-    private async void Start()
-    {
-        await Timer();
-        OnTimeOverEvent?.Invoke();
-    }
-
-    private async UniTask Timer()
+    public async UniTask Timer()
     {
         try
         {
@@ -25,6 +19,7 @@ public class TimeManager : MonoBehaviour
                 await UniTask.Yield(cancellationToken: destroyCancellationToken);
             }
             Debug.Log("Time Out");
+            OnTimeOverEvent?.Invoke();
         }
         catch { }
     }

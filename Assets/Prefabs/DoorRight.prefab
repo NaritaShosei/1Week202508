@@ -126,6 +126,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _slideType: 0
+  _duration: 0.5
+  _targetPos: {x: 15, y: 0, z: 0}
 --- !u!1 &6121143627578005442
 GameObject:
   m_ObjectHideFlags: 0
