@@ -596,10 +596,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 1920, y: 1080}
   m_ScreenMatchMode: 0
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
@@ -717,17 +717,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 724fc1ce6d492394d99c24829154914e, type: 3}
---- !u!114 &765672669 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8935117823793055849, guid: 6c3f41be1cb696a42bf2d7afa875ccb6, type: 3}
-  m_PrefabInstance: {fileID: 2859039882233636917}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 11de37e600349494f80a8880a837d420, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &957149222
 GameObject:
   m_ObjectHideFlags: 0
@@ -1068,6 +1057,8 @@ GameObject:
   - component: {fileID: 1521299726}
   - component: {fileID: 1521299728}
   - component: {fileID: 1521299727}
+  - component: {fileID: 1521299730}
+  - component: {fileID: 1521299729}
   m_Layer: 5
   m_Name: Panel
   m_TagString: Untagged
@@ -1133,6 +1124,32 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1521299725}
   m_CullTransparentMesh: 1
+--- !u!114 &1521299729
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1521299725}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fcb6d1d870e859049bc3fdb1b0134d25, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _group: {fileID: 1521299730}
+  _duration: 0.5
+--- !u!225 &1521299730
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1521299725}
+  m_Enabled: 1
+  m_Alpha: 0
+  m_Interactable: 1
+  m_BlocksRaycasts: 0
+  m_IgnoreParentGroups: 0
 --- !u!1 &1581231250
 GameObject:
   m_ObjectHideFlags: 0
@@ -1216,16 +1233,16 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: TitleManager, Assembly-CSharp
-        m_MethodName: SetName
-        m_Mode: 1
+      - m_Target: {fileID: 1586535337}
+        m_TargetAssemblyTypeName: IngameManager, Assembly-CSharp
+        m_MethodName: LoadScene
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: Title
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1581231253
@@ -1327,7 +1344,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5bdba25eabd1c034ea2ff85dd0ad68eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _maxTime: 22.82
+  _maxTime: 10
   _timerView: {fileID: 1262363892}
 --- !u!114 &1586535337
 MonoBehaviour:
@@ -1347,6 +1364,9 @@ MonoBehaviour:
   _timeManager: {fileID: 1586535336}
   _countText: {fileID: 436481909}
   _fadeUI: {fileID: 360275174}
+  _bgmName: IngameBGM
+  _seName: DoorSlide
+  _resultPanel: {fileID: 1521299729}
 --- !u!1 &1986419228
 GameObject:
   m_ObjectHideFlags: 0
@@ -1519,14 +1539,6 @@ PrefabInstance:
     - target: {fileID: 3804649474058020415, guid: 6c3f41be1cb696a42bf2d7afa875ccb6, type: 3}
       propertyPath: m_Name
       value: GameManager
-      objectReference: {fileID: 0}
-    - target: {fileID: 6905451710144391525, guid: 6c3f41be1cb696a42bf2d7afa875ccb6, type: 3}
-      propertyPath: AudioManager
-      value: 
-      objectReference: {fileID: 765672669}
-    - target: {fileID: 6905451710144391525, guid: 6c3f41be1cb696a42bf2d7afa875ccb6, type: 3}
-      propertyPath: Data.Datas.Array.size
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

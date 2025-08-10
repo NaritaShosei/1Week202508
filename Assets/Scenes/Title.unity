@@ -241,6 +241,7 @@ MonoBehaviour:
   _nameText: {fileID: 284274999}
   _maxNameLength: 7
   _fadeUI: {fileID: 829762318}
+  _bgmName: IngameBGM
 --- !u!4 &270993451
 Transform:
   m_ObjectHideFlags: 0
@@ -1816,6 +1817,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: GameManager
       objectReference: {fileID: 0}
+    - target: {fileID: 6905451710144391525, guid: 6c3f41be1cb696a42bf2d7afa875ccb6, type: 3}
+      propertyPath: AudioManager
+      value: 
+      objectReference: {fileID: 1440262317}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1978,6 +1983,17 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1412932125}
   m_CullTransparentMesh: 1
+--- !u!114 &1440262317 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8935117823793055849, guid: 6c3f41be1cb696a42bf2d7afa875ccb6, type: 3}
+  m_PrefabInstance: {fileID: 1206807296}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 11de37e600349494f80a8880a837d420, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1511613302
 GameObject:
   m_ObjectHideFlags: 0

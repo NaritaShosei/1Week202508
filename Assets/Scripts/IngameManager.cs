@@ -13,17 +13,27 @@ public class IngameManager : MonoBehaviour
     [SerializeField] private FadeUI _fadeUI;
     [SerializeField] private string _bgmName;
     [SerializeField] private string _seName;
+    [SerializeField] private ResultPanel _resultPanel;
 
     private async void Start()
     {
         _gameManager = GameManager.Instance;
-        _gameManager.AudioManager.PlayBGM(_bgmName);
+
+        if (!_gameManager.AudioManager.IsBGMPlaying())
+        {
+            _gameManager.AudioManager.PlayBGM(_bgmName);
+        }
+
         _currentDoor = Instantiate(_doors[Random.Range(0, _doors.Length)]);
         _timeManager.OnTimeOverEvent += AddScore;
+
         bool isFaded = false;
         _fadeUI.Fade(0, () => isFaded = true);
         await UniTask.WaitUntil(() => isFaded, cancellationToken: destroyCancellationToken);
+
         await _timeManager.TimerUpdate();
+
+        _resultPanel.FadePanel();
     }
 
     private void OnDisable()
@@ -47,5 +57,10 @@ public class IngameManager : MonoBehaviour
             _countText.text = $"Score:{_slideCount}";
             _gameManager.AudioManager.PlaySE(_seName);
         }
+    }
+
+    public void LoadScene(string name)
+    {
+        _fadeUI.Fade(1, () => SceneChanger.SceneChange(name));
     }
 }

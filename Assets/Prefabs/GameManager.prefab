@@ -47,6 +47,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 78407cda60589ac4b80850b32a3c2b1c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AudioManager: {fileID: 8935117823793055849}
   Data:
     Datas: []
 --- !u!114 &8935117823793055849
@@ -64,10 +65,10 @@ MonoBehaviour:
   AudioDatas:
   - Name: IngameBGM
     Clip: {fileID: 8300000, guid: 20293aaeb95ebe342a82d74e8d323c76, type: 3}
-    Volume: 0.55
+    Volume: 0.277
   - Name: DoorSlide
     Clip: {fileID: 8300000, guid: 31f7c6f91e83d0b4087aded12e0d7a49, type: 3}
-    Volume: 0.571
+    Volume: 0.662
   _bgmSource: {fileID: 9146184253416822439}
   _seSource: {fileID: 3965305031098212451}
 --- !u!82 &9146184253416822439

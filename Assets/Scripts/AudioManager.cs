@@ -37,6 +37,11 @@ public class AudioManager : MonoBehaviour
         _bgmSource.Stop();
     }
 
+    public bool IsBGMPlaying()
+    {
+        return _bgmSource.isPlaying;
+    }
+
 }
 [System.Serializable]
 public class AudioData
