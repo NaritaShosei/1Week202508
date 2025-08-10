@@ -27,6 +27,7 @@ public class SlideManager : MonoBehaviour
 
     public void Flick(SlideType type)
     {
+        if (!_timeManager.IsStat) { return; }
         Debug.Log(type.ToString());
         if (_currentDoor.CanSlide(type))
         {
