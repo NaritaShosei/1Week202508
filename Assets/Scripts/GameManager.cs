@@ -3,6 +3,8 @@
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
+    public AudioManager AudioManager;
+    [HideInInspector]
     public ScoreData Data;
     private static string _name;
 

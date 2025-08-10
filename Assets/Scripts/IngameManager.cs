@@ -11,10 +11,13 @@ public class IngameManager : MonoBehaviour
     private int _slideCount;
     [SerializeField] private Text _countText;
     [SerializeField] private FadeUI _fadeUI;
+    [SerializeField] private string _bgmName;
+    [SerializeField] private string _seName;
 
     private async void Start()
     {
         _gameManager = GameManager.Instance;
+        _gameManager.AudioManager.PlayBGM(_bgmName);
         _currentDoor = Instantiate(_doors[Random.Range(0, _doors.Length)]);
         _timeManager.OnTimeOverEvent += AddScore;
         bool isFaded = false;
@@ -42,6 +45,7 @@ public class IngameManager : MonoBehaviour
             _currentDoor = Instantiate(_doors[Random.Range(0, _doors.Length)]);
             _slideCount++;
             _countText.text = $"Score:{_slideCount}";
+            _gameManager.AudioManager.PlaySE(_seName);
         }
     }
 }
