@@ -11,18 +11,12 @@ public class IngameManager : MonoBehaviour
     private int _slideCount;
     [SerializeField] private Text _countText;
     [SerializeField] private FadeUI _fadeUI;
-    [SerializeField] private string _bgmName;
     [SerializeField] private string _seName;
     [SerializeField] private ResultPanel _resultPanel;
 
     private async void Start()
     {
         _gameManager = GameManager.Instance;
-
-        if (!_gameManager.AudioManager.IsBGMPlaying())
-        {
-            _gameManager.AudioManager.PlayBGM(_bgmName);
-        }
 
         _currentDoor = Instantiate(_doors[Random.Range(0, _doors.Length)]);
         _timeManager.OnTimeOverEvent += AddScore;

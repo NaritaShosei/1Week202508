@@ -8,6 +8,11 @@ public class AudioManager : MonoBehaviour
     [SerializeField] private AudioSource _bgmSource;
     [SerializeField] private AudioSource _seSource;
 
+    private void Start()
+    {
+        PlayBGM("IngameBGM");
+    }
+
     public void PlayBGM(string key)
     {
         var data = AudioDatas.First(x => x.Name == key);

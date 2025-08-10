@@ -7,6 +7,7 @@ public class ResultPanel : MonoBehaviour
     [SerializeField] private float _duration = 0.5f;
     public void FadePanel()
     {
+        if (_group == null) return;
         _group.blocksRaycasts = true;
         _group.DOFade(1, _duration).SetLink(gameObject);
     }
