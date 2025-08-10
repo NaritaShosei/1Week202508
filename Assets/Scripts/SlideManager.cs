@@ -6,12 +6,13 @@ public class SlideManager : MonoBehaviour
     [SerializeField] private SlideDoor[] _doors;
     private SlideDoor _currentDoor;
     [SerializeField] private TimeManager _timeManager;
-    [SerializeField] private GameManager _gameManager;
+    private GameManager _gameManager;
     private int _slideCount;
     [SerializeField] private Text _countText;
 
     private async void Start()
     {
+        _gameManager = GameManager.Instance;
         _currentDoor = Instantiate(_doors[Random.Range(0, _doors.Length)]);
         _timeManager.OnTimeOverEvent += AddScore;
         await _timeManager.TimerUpdate();
