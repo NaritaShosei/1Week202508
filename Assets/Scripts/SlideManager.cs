@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 
 public class SlideManager : MonoBehaviour
 {
@@ -7,12 +8,13 @@ public class SlideManager : MonoBehaviour
     [SerializeField] private TimeManager _timeManager;
     [SerializeField] private GameManager _gameManager;
     private int _slideCount;
+    [SerializeField] private Text _countText;
 
     private async void Start()
     {
         _currentDoor = Instantiate(_doors[Random.Range(0, _doors.Length)]);
         _timeManager.OnTimeOverEvent += AddScore;
-        await _timeManager.Timer();
+        await _timeManager.TimerUpdate();
     }
 
     private void OnDisable()
@@ -33,6 +35,7 @@ public class SlideManager : MonoBehaviour
         {
             _currentDoor = Instantiate(_doors[Random.Range(0, _doors.Length)]);
             _slideCount++;
+            _countText.text = $"Score:{_slideCount}";
         }
     }
 }

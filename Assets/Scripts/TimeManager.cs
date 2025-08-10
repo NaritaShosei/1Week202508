@@ -8,7 +8,8 @@ public class TimeManager : MonoBehaviour
     private float _timer;
     public event Action OnTimeOverEvent;
     public bool IsStat { get; private set; }
-    public async UniTask Timer()
+    [SerializeField] private TimerView _timerView;
+    public async UniTask TimerUpdate()
     {
         try
         {
@@ -17,6 +18,7 @@ public class TimeManager : MonoBehaviour
             while (_timer > 0)
             {
                 _timer -= Time.deltaTime;
+                _timerView.ViewUpdate(Mathf.Abs(1 - (_timer / _maxTime)));
                 await UniTask.Yield(cancellationToken: destroyCancellationToken);
             }
             Debug.Log("Time Out");
