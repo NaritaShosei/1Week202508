@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Cysharp.Threading.Tasks;
+using UnityEngine;
 using UnityEngine.UI;
 
 public class IngameManager : MonoBehaviour
@@ -9,12 +10,16 @@ public class IngameManager : MonoBehaviour
     private GameManager _gameManager;
     private int _slideCount;
     [SerializeField] private Text _countText;
+    [SerializeField] private FadeUI _fadeUI;
 
     private async void Start()
     {
         _gameManager = GameManager.Instance;
         _currentDoor = Instantiate(_doors[Random.Range(0, _doors.Length)]);
         _timeManager.OnTimeOverEvent += AddScore;
+        bool isFaded = false;
+        _fadeUI.Fade(0, () => isFaded = true);
+        await UniTask.WaitUntil(() => isFaded, cancellationToken: destroyCancellationToken);
         await _timeManager.TimerUpdate();
     }
 
