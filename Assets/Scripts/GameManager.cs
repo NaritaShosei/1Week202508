@@ -4,7 +4,8 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
     public ScoreData Data;
-    string _name;
+    private static string _name;
+
     private void Awake()
     {
         if (Instance != null)
@@ -18,6 +19,11 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         Data = SaveLoadService.Load<ScoreData>();
+    }
+
+    public void SetName(string name)
+    {
+        _name = name;
     }
 
     public void AddScore(int score)
