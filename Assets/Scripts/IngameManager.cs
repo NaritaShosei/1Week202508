@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 
-public class SlideManager : MonoBehaviour
+public class IngameManager : MonoBehaviour
 {
     [SerializeField] private SlideDoor[] _doors;
     private SlideDoor _currentDoor;

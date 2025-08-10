@@ -5,7 +5,7 @@ using UnityEngine.InputSystem;
 public class FlickInputManager : MonoBehaviour
 {
     [SerializeField] InputActionAsset _input;
-    [SerializeField] SlideManager _slideManager;
+    [SerializeField] IngameManager _slideManager;
     [SerializeField] float _minFlickDistance = 50f; // 最小フリック距離（スマホ用）
 
     Vector2 _startPosition;
