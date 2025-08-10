@@ -12,9 +12,9 @@ public class TitleManager : MonoBehaviour
 
         for (int i = 0; i < _rankingTexts.Length; i++)
         {
-            if (datas.Count < i) { break; }
+            if (datas.Count <= i) { break; }
             _rankingTexts[i].NameText.text =
-                datas[i].Name != "" || datas[i].Name != null ? datas[i].Name : "NoName";
+                  !string.IsNullOrEmpty(datas[i].Name) ? datas[i].Name : "NoName";
 
             _rankingTexts[i].ScoreText.text = $"{datas[i].Score}";
         }
