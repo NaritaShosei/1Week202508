@@ -6,12 +6,13 @@ public class GameManager : MonoBehaviour
     string _name;
     private void Start()
     {
-        _data = (ScoreData)Resources.Load("ScoreData");
+        _data = SaveLoadService.Load<ScoreData>();
     }
 
     public void AddScore(int score)
     {
         var data = new Data() { Score = score, Name = _name };
         _data.Datas.Add(data);
+        SaveLoadService.Save(_data);
     }
 }

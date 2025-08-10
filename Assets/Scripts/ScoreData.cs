@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "ScoreData", menuName = "ScoreData")]
-public class ScoreData : ScriptableObject
+[System.Serializable]
+public class ScoreData
 {
     public List<Data> Datas = new List<Data>();
 }
