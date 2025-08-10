@@ -7,9 +7,11 @@ public class TitleManager : MonoBehaviour
     [SerializeField] private RankingText[] _rankingTexts;
     [SerializeField] private Text _nameText;
     [SerializeField] private int _maxNameLength = 7;
+    [SerializeField] private FadeUI _fadeUI;
 
     private void Start()
     {
+        _fadeUI.Fade(0);
         var datas = GameManager.Instance.Data.Datas.OrderByDescending(x => x.Score).ToList();
 
         for (int i = 0; i < _rankingTexts.Length; i++)
@@ -22,14 +24,16 @@ public class TitleManager : MonoBehaviour
         }
     }
 
-    public void SetName()
+    public void LoadScene(string name)
     {
         if (_nameText.text.Length >= _maxNameLength)
         {
             Debug.Log("Name Is Long Aho");
+            return;
         }
 
         GameManager.Instance.SetName(_nameText.text);
+        _fadeUI.Fade(1, () => SceneChanger.SceneChange(name));
     }
 }
 [System.Serializable]
