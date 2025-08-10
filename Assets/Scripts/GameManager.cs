@@ -3,7 +3,7 @@
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
-    ScoreData _data;
+    public ScoreData Data;
     string _name;
     private void Awake()
     {
@@ -17,13 +17,13 @@ public class GameManager : MonoBehaviour
     }
     private void Start()
     {
-        _data = SaveLoadService.Load<ScoreData>();
+        Data = SaveLoadService.Load<ScoreData>();
     }
 
     public void AddScore(int score)
     {
         var data = new Data() { Score = score, Name = _name };
-        _data.Datas.Add(data);
-        SaveLoadService.Save(_data);
+        Data.Datas.Add(data);
+        SaveLoadService.Save(Data);
     }
 }
