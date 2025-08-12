@@ -9,6 +9,7 @@ public class TitleManager : MonoBehaviour
     [SerializeField] private Text _nameText;
     [SerializeField] private int _maxNameLength = 7;
     [SerializeField] private FadeUI _fadeUI;
+    [SerializeField] private Text _warningText;
     private void Start()
     {
         _fadeUI.Fade(0);
@@ -26,9 +27,10 @@ public class TitleManager : MonoBehaviour
 
     public void LoadScene(string name)
     {
-        if (_nameText.text.Length >= _maxNameLength)
+        if (_nameText.text.Length > _maxNameLength)
         {
             Debug.Log("Name Is Long Aho");
+            _warningText.text = $"{_nameText.text}は良い名前だけど{_maxNameLength}文字以下にしてほしいな";
             return;
         }
 
