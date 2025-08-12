@@ -1392,7 +1392,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _input: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   _slideManager: {fileID: 1586535337}
-  _minFlickDistance: 50
+  _minFlickDistance: 1
 --- !u!4 &1586535335
 Transform:
   m_ObjectHideFlags: 0

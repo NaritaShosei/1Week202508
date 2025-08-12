@@ -65,10 +65,10 @@ MonoBehaviour:
   AudioDatas:
   - Name: IngameBGM
     Clip: {fileID: 8300000, guid: 20293aaeb95ebe342a82d74e8d323c76, type: 3}
-    Volume: 0.277
+    Volume: 0.224
   - Name: DoorSlide
     Clip: {fileID: 8300000, guid: 31f7c6f91e83d0b4087aded12e0d7a49, type: 3}
-    Volume: 0.662
+    Volume: 0.855
   _bgmSource: {fileID: 9146184253416822439}
   _seSource: {fileID: 3965305031098212451}
 --- !u!82 &9146184253416822439
